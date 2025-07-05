@@ -4,9 +4,9 @@ function salaryTotal(companyObj) {
 	let subTotal = 0;
 	for (const department in companyObj) {
 		if(Array.isArray(companyObj[department])) {
-			companyObj[department].forEach((dept) => {
-				if ('salary' in dept && typeof dept.salary === 'number' && Number.isFinite(dept.salary)) {
-					subTotal += dept.salary;
+			companyObj[department].forEach((employee) => {
+				if ('salary' in employee && typeof employee.salary === 'number' && Number.isFinite(employee.salary)) {
+					subTotal += employee.salary;
 				}
 			});
 		}
