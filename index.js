@@ -10,7 +10,7 @@ function salaryTotal(companyObj) {
 				}
 			});
 		}
-		else if(typeof companyObj[department] === 'object') {
+		else if(typeof companyObj[department] === 'object' && companyObj[department] !== null) {
 			subTotal += salaryTotal(companyObj[department]);
 		}
 	}
