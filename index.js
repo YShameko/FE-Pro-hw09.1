@@ -5,12 +5,12 @@ function salaryTotal(companyObj) {
 	for (const department in companyObj) {
 		if(Array.isArray(companyObj[department])) {
 			companyObj[department].forEach((dept) => {
-				subTotal += dept.salary;
+				if ('salary' in dept && typeof dept.salary === 'number' && Number.isFinite(dept.salary)) {
+					subTotal += dept.salary;
+				}
 			});
-			// console.log(`${department} is an array`);
 		}
 		else if(typeof companyObj[department] === 'object') {
-			// console.log(`${department} is an object`);
 			subTotal += salaryTotal(companyObj[department]);
 		}
 	}
